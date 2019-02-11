@@ -8,7 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seedDb": "node db/seed.js"
+    "seedDb": "node db/seed.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -19,6 +20,7 @@
     "enzyme": "^3.8.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^24.1.0",
+    "supertest": "^3.4.2",
     "webpack": "^4.29.2",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
