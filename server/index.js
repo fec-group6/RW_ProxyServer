@@ -3,10 +3,7 @@ const app = express()
 const port = 3000
 const path = require('path')
 
-app.get('/', (req, res) => { 
-  console.log(`Serving GET request on path: ${req.path}`)
-  res.sendFile(path.join(__dirname, '../public/index.html')) 
-})
+app.use(express.static('public'))
 
 // catch-all
 app.get('*', (req, res) => { 
