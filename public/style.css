@@ -1,0 +1,37 @@
+body {
+  margin: 0
+}
+.searchBar {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  border: 3px solid red;
+}
+
+.commentsSection {
+  padding: 10px;
+  border: 3px solid red;
+  height: 250px
+
+}
+
+
+.videoPlayer {
+  padding: 10px;
+  border: 3px solid red;
+  height: 250px
+}
+
+
+.videoList {
+  border: 3px solid red;
+  padding: 10px;
+  height: 500px
+}
+
+.fullWidth {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}

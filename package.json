@@ -11,7 +11,8 @@
     "seedDb": "node db/seed.js",
     "test": "jest",
     "watch": "webpack --watch --mode=development",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "runDev": "nodemon server/index.js"
   },
   "dependencies": {
     "express": "^4.16.4",
