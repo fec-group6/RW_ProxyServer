@@ -3,7 +3,10 @@ const app = express()
 const port = 3000
 const path = require('path')
 const VideoModel = require('../db/VideoModel');
-const db = require('../db/index.js');
+
+if (!process.env.JEST_WORKER_ID ) {
+  const db = require('../db/index.js');
+}
 
 app.use(express.static('public'))
 
