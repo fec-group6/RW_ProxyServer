@@ -10,6 +10,7 @@ const videoSchema = new mongoose.Schema({
   videoThumbnailURL: String,
   videoURL: String,
   viewCount: { type: Number, default: 0 },
+  videoIndex: Number
 }, { timestamps: { createdAt: 'created_at' } });
 
 const VideoModel = mongoose.model('Video', videoSchema);

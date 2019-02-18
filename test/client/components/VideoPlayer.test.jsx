@@ -8,6 +8,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('VideoPlayer component', () => {
   test('VideoPlayer exists', () => {
+    
     const wrapper = shallow(<VideoPlayer />);
     expect(wrapper.exists()).toBe(true)
   });

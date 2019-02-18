@@ -34,7 +34,7 @@ const createRequestParameters = (apiEndpoint, partToSearch, queryString, youTube
 var transformRawYouTubeAPIData = function (arrayOfCombinedVideos) {
   let result = [];
 
-  arrayOfCombinedVideos.forEach((video) => {
+  arrayOfCombinedVideos.forEach((video, index) => {
     var newVideo = {
       numberOfDislikes: video.statistics.dislikeCount,
       numberOfLikes: video.statistics.likeCount,
@@ -45,6 +45,7 @@ var transformRawYouTubeAPIData = function (arrayOfCombinedVideos) {
       videoThumbnailURL: video.snippet.thumbnails.default.url,
       videoURL: `https://www.youtube.com/embed/${video.id}`,
       viewCount: video.statistics.viewCount,
+      videoIndex: index
     };
     result.push(newVideo);
   });
