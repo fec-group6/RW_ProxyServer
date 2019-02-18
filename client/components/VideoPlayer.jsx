@@ -1,35 +1,42 @@
 import React from "react";
 
 
-class VideoPlayer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      videoURL: ''
-    };
-  }
-
-  componentDidMount() {
-    fetch("/video-player-service/api/get-video?videoId=EtH9Yllzjcc")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            videoURL: result.videoURL
-          });
-        }
-      )
-  }
-
-  render() {
-    return (
-
-      <iframe width="750" height="500"
-        src={this.state.videoURL}>
+function IFrame(props) {
+  return (
+    <div className="embed-responsive embed-responsive-16by9">
+      <iframe id="iframe" className="embed-responsive-item"
+        src={props.videoURL}>
       </iframe>
-    );
-  }
+    </div>
+  )
+}
+
+function VideoInfo(video) {
+  return (
+    <div>
+      <h5>{video.title}</h5>
+      <div className="row">
+        <div className="col-6 viewCount">{video.viewCount} views </div>
+        <button className="col-1 btn btn-default"><i className="fas fa-thumbs-up"></i> {video.numberOfLikes}</button>
+        <button className="col-1 btn btn-default"><i className="fas fa-thumbs-down"></i> {video.numberOfDislikes}</button>
+        <button className="col-1 btn btn-default"><i className="fas fa-share"></i> SHARE</button>
+        <button className="col-1 btn btn-default"><i className="fas fa-plus"></i> SAVE</button>
+        <button className="col-1 btn btn-default"><i className="fas fa-ellipsis-h"></i></button>
+      </div>
+    </div>
+  )
+}
+
+
+function VideoPlayer(props) {
+  if (!props.video) return null;
+
+  return (
+    <div className='videoPlayer'>
+      <IFrame videoURL={props.video.videoURL} />
+      <VideoInfo {...props.video} />
+    </div>
+  );
 }
 export default VideoPlayer;
 

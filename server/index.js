@@ -4,7 +4,7 @@ const port = 3000
 const path = require('path')
 const VideoModel = require('../db/VideoModel');
 
-if (!process.env.JEST_WORKER_ID ) {
+if (!process.env.JEST_WORKER_ID) {
   const db = require('../db/index.js');
 }
 
@@ -12,13 +12,26 @@ app.use(express.static('public'))
 
 app.get('/video-player-service/api/get-video', (req, res) => {
   console.log(`Serving GET request on path: ${req.path}`)
-  VideoModel.findOne({ videoYouTubeId: req.query.videoId }, function (err, video) { 
+
+  let params;
+
+  if (req.query.videoId) {
+    params = { videoYouTubeId: req.query.videoId }
+  } else {
+    randomIndex = Math.floor(Math.random() * 100)
+    params = { videoIndex: randomIndex };
+  }
+  
+  VideoModel.findOne(params, function (err, video) {
     if (err) {
       console.log(err)
+      res.send(500, 'video not found!')
+    } else {
+      res.send(video)
     }
-    res.send(video)
   });
 })
+
 
 // catch-all
 app.get('*', (req, res) => {

@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('VideoPlayer component', () => {
   test('VideoPlayer exists', () => {
-    global.fetch = jest.fn(() => new Promise(resolve => resolve()));
+    
     const wrapper = shallow(<VideoPlayer />);
     expect(wrapper.exists()).toBe(true)
   });
