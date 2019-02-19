@@ -1,0 +1,9 @@
+[submodule "Subscribe_Comments"]
+	path = Subscribe_Comments
+	url = https://github.com/fec-group6/Subscribe_Comments.git
+[submodule "Video-List-Service-KD"]
+	path = Video-List-Service-KD
+	url = https://github.com/fec-group6/Video-List-Service-KD.git
+[submodule "KS-V-P-Service"]
+	path = KS-V-P-Service
+	url = https://github.com/fec-group6/KS-V-P-Service.git
